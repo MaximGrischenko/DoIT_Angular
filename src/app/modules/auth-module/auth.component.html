@@ -1,0 +1,17 @@
+<div class="auth">
+  <div class="auth-header">
+    <a routerLink="sign-in" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}">Sign In
+    </a>
+    <a routerLink="sign-up" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}">Sign Up
+    </a>
+  </div>
+  <router-outlet></router-outlet>
+  <div class="auth-footer">
+    <a routerLink="recovery" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}">Forgot Password?
+    </a>
+  </div>
+</div>
+

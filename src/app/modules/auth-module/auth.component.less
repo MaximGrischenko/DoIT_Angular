@@ -1,0 +1,100 @@
+@import "../../../assets/styles/joined";
+.auth {
+  .col();
+  .size(4);
+  .size-md(6);
+  .size-sm(8);
+  .size-xs(12);
+  .xs-block({
+    margin: 0;
+  });
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  &-header {
+    display: flex;
+    align-items: center;
+    min-height: 45px;
+    a {
+      display: block;
+      position: relative;
+      min-height: 45px;
+      width: 50%;
+      line-height: 45px;
+      text-align: center;
+      flex-grow: 1;
+      color: @auth-header-link-color;
+      font-family: @font-family-regular;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      background: @auth-header-bg-color;
+      border: 1px @auth-header-br-color solid;
+      box-shadow: inset 0 1px 0 @auth-header-sh-color;
+
+      &::before {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        color: transparent;
+        content: '\2022';
+        text-shadow: 0 0 transparent;
+        font-size: 2em;
+        .transition();
+        transform: translateX(-40%);
+        pointer-events: none;
+      }
+      &:not(.active):hover::before {
+        color: @auth-header-link-hv-color;
+        text-shadow: 15px 0 @auth-header-link-hv-color, -15px 0 @auth-header-link-hv-color;
+        .transition();
+      }
+      &.active {
+        color: @auth-header-link-ac-color;
+        background: @auth-header-hv-color;
+      }
+      &:first-child {
+        border-top-left-radius: 5px;
+      }
+      &:last-child {
+        border-top-right-radius: 5px;
+      }
+    }
+  }
+  &-footer {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: @auth-footer-bg-color;
+
+    a {
+      position: relative;
+      color: @auth-footer-link-color;
+      text-decoration: none;
+      &::before {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        color: transparent;
+        content: '\2022';
+        text-shadow: 0 0 transparent;
+        font-size: 2em;
+        .transition();
+        transform: translateX(-40%);
+        pointer-events: none;
+      }
+
+      &:not(.active):hover::before {
+        color: @auth-footer-link-hv-color;
+        text-shadow: 15px 0 @auth-footer-link-hv-color, -15px 0 @auth-footer-link-hv-color;
+        .transition();
+      }
+
+      &.active {
+        color: @auth-footer-link-ac-color;
+      }
+    }
+  }
+}

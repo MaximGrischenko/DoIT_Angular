@@ -1,0 +1,42 @@
+<app-auth-popup *ngIf="error" [error]="error"></app-auth-popup>
+<div class="login-container">
+  <form #loginForm="ngForm" class="login-form">
+    <div class="login-form__group">
+      <label for="email">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/svg/envelop-icon.svg#envelop"></use>
+        </svg>
+      </label>
+      <input id="email"
+             name="email"
+             type="email"
+             autocomplete="off"
+             placeholder="Email"
+             [(ngModel)]="userData.email"
+             required
+             email/>
+    </div>
+    <div class="login-form__group">
+      <label for="password">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/svg/lock-icon.svg#lock"></use>
+        </svg>
+      </label>
+      <input id="password"
+             name="password"
+             type="password"
+             placeholder="Password"
+             [(ngModel)]="userData.password"
+             required/>
+    </div>
+    <div class="login-form__submit">
+      <button class="login-form__button"
+              [disabled]='loginForm.invalid' (click)="onSubmit()">>
+        <svg width="30" height="30">
+          <use xlink:href="./assets/svg/enter-icon.svg#enter"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>
+

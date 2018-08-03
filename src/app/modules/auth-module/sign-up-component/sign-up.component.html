@@ -1,0 +1,55 @@
+<app-auth-popup *ngIf="error" [error]="error"></app-auth-popup>
+<div class="register-container">
+  <form #registerForm="ngForm" class="register-form">
+    <div class="register-form__group">
+      <label for="name">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/svg/user-icon.svg#user"></use>
+        </svg>
+      </label>
+      <input id="name"
+             name="name"
+             type="text"
+             autocomplete="off"
+             placeholder="Login"
+             [(ngModel)]="userData.name"
+             required />
+    </div>
+    <div class="register-form__group">
+      <label for="email">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/svg/envelop-icon.svg#envelop"></use>
+        </svg>
+      </label>
+      <input id="email"
+             name="email"
+             type="email"
+             autocomplete="off"
+             placeholder="Email"
+             [(ngModel)]="userData.email"
+             required
+             email/>
+    </div>
+    <div class="register-form__group">
+      <label for="password">
+        <svg width="32" height="32">
+          <use xlink:href="./assets/svg/lock-icon.svg#lock"></use>
+        </svg>
+      </label>
+      <input id="password"
+             name="password"
+             type="password"
+             placeholder="Password"
+             [(ngModel)]="userData.password"
+             required/>
+    </div>
+    <div class="register-form__submit">
+      <button class="register-form__button"
+              [disabled]='registerForm.invalid' (click)="onSubmit()">>
+        <svg width="32" height="32">
+          <use xlink:href="./assets/svg/clipboard-icon.svg#clipboard"></use>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>

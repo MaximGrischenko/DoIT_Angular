@@ -1,0 +1,23 @@
+<nav id="navigation-bar">
+  <p class="title">Menu</p>
+  <ul class="navigation">
+    <li class="nav-element">
+      <a routerLink="map" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact:true}">
+        <svg width="32" height="32">
+          <use xlink:href="assets/svg/map-icon.svg#map"></use>
+        </svg>
+        <p>Map</p>
+      </a>
+    </li>
+    <li class="nav-element">
+      <a routerLink="about" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact:true}">
+        <svg width="32" height="32">
+          <use xlink:href="assets/svg/info-icon.svg#info"></use>
+        </svg>
+        <p>About</p>
+      </a>
+    </li>
+  </ul>
+</nav>

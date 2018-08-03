@@ -1,0 +1,19 @@
+<header>
+  <a class="logotype" routerLink="../app/map" routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact:true}">
+    <svg width="60" height="60" viewBox="0 0 86 84">
+      <use xlink:href="assets/svg/logo-icon.svg#logo"></use>
+    </svg>
+  </a>
+  <div class="input-group">
+    <form name="SearchForm">
+      <label for="search">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <use xlink:href="assets/svg/search-icon.svg#search"></use>
+        </svg>
+      </label>
+      <input id="search" type="text" class="input-control" placeholder="Search"/>
+      <input type="button" class="input-control" value="Log out" (click)="onLogout()"/>
+    </form>
+  </div>
+</header>
