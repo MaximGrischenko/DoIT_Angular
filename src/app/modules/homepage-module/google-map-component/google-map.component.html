@@ -1,3 +1,63 @@
 <section class="map-wrapper">
-  <div id="map" class="google-map"></div>
+  <div class="group">
+    <ul class="select" (click)="onShowOptions()">{{this.selectedService}}
+      <label *ngIf="!this.selectedService.length">Select service</label>
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <use xlink:href="assets/svg/circle-down.svg#circle-down"></use>
+      </svg>
+      <div class="options" *ngIf="isOptionsShown">
+        <li class="option" *ngFor="let service of services"
+            (click)="onSelectOption(service)">{{service}}
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="map-controls">
+    <button (click)="getCurrentPosition()">
+      <svg width="20" height="20">
+        <use xlink:href="./assets/svg/target-icon.svg#target"></use>
+      </svg>
+    </button>
+    <button (click)="toogleMarkers()">
+      <svg *ngIf="!this.isMarkersShown" width="20" height="20">
+        <use xlink:href="./assets/svg/locations-disabled.svg#locations-disabled"></use>
+      </svg>
+      <svg *ngIf="this.isMarkersShown" width="20" height="20">
+        <use xlink:href="./assets/svg/locations-enabled.svg#locations-enabled"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="popup-form" *ngIf="!isPopupHidden" [style.top.px]="pixel.y" [style.left.px]="pixel.x">
+    <label for="title">Add marker?</label>
+    <form class="title-form" [ngSwitch]="this.counter">
+      <input *ngSwitchCase="1"
+             id="title"
+             type="text"
+             placeholder="Marker title"
+             autocomplete="off"
+             #titleIn="ngModel"
+             [(ngModel)]="this.title"
+             [ngModelOptions]="{standalone: true}"
+             required />
+    </form>
+    <div class="controllers">
+      <div class="controllers-box" [style.left.px]="-10">
+        <button class="controllers-box__button confirm"
+                [disabled]='this.counter > 0 && !this.title?.length'
+                (click)="onConfirm()">
+          <svg width="30" height="30">
+            <use xlink:href="./assets/svg/check-icon.svg#check"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="controllers-box" [style.right.px]="-10">
+        <button class="controllers-box__button reject" (click)="onReject()">
+          <svg width="30" height="30">
+            <use xlink:href="./assets/svg/close-icon.svg#close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div #googleMaps class="google-map"></div>
 </section>
